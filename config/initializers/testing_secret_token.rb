@@ -1,0 +1,3 @@
+#Run >rake secret to create a new one
+#SimpleCms::Application.config.secret_key_base = '534c6dbbf7019d057ea5928802d7acd5f04cad8150c139be368892c43012847efa9754541ef639605bc321f045796d9eb4e2693f9624e51fa11506fd074b2fe8'
+

@@ -1,0 +1,24 @@
+<h2>Escape output examples </h2>
+<% made_safe = "<script> alert('Gotcha!');</script>".html_safe %>
+
+<% evil_string = "<script> alert('Gotcha!');</script>" %>
+<% good_string = "<strong>Welcome to my site!</strong>" %>
+
+<%= raw(evil_string) %> <br>
+<%= raw(good_string)%> <br>
+
+<%= evil_string.html_safe? %> <br>
+<%= good_string.html_safe? %> <br>
+<%= made_safe.html_safe? %><br>
+
+<%= strip_tags(evil_string) %> <br>
+<%= strip_tags(good_string) %> <br>
+
+<%= sanitize(evil_string,
+    :tags => ['p', 'br', 'strong', 'em'],
+    :attributes => ['id', 'class', 'style']) %> <br>
+
+ <%= sanitize(good_string,
+    :tags => ['p', 'br', 'strong', 'em'],
+    :attributes => ['id', 'class', 'style']) %> <br>   
+	

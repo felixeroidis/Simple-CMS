@@ -1,0 +1,83 @@
+<%
+texto="The Republican Party, also commonly called the GOP (for \"Grand Old Party\"), is one of the world's oldest political parties still in existence, the second oldest existing political party in the United States after its great rival, the Democratic Party. \n\n It emerged in 1854 to combat the Kansas–Nebraska Act, which threatened to extend slavery into the territories, and to promote more vigorous modernization of the economy. \n\n The Party had almost no presence in the South, but by 1858 in the North it had enlisted former Whigs and former Free Soil Democrats to form majorities in nearly every Northern state."
+%>
+
+<h2> Word wrap</h2>
+<%= word_wrap(texto, :line_width => 30) %>
+<hr />
+
+<h2> simple_format</h2>
+<%= simple_format(texto) %>
+<hr />
+
+<h2> simple_format + word_wrap </h2>
+<%= simple_format(word_wrap(texto, :line_width => 30)) %>
+<hr />
+
+<h2> truncate</h2>
+<%= truncate(texto, :length => 40, :omission => "...") %>
+<hr />
+
+<h2> highlight</h2>
+<%= highlight(texto, 'Grand Old Party') %>
+<br />
+
+<h2> pluralize</h2>
+<%= "student".pluralize %> <br />
+<%= "ox".pluralize %> <br/>
+<%= pluralize(0, 'product') %> <br />
+<%= pluralize(1, 'product') %> <br />
+<%= pluralize(2, 'product') %> <br />
+
+<h2> cycle</h2>>
+<% 7.times do %>
+  <%= cycle('red', 'green', 'blue') %>
+<% end %>
+<br>
+<%= number_field(:product, :price, in: 1.0..20.0, step: 0.5) %>
+<br>
+<%= email_field(:user, :address) %>
+
+<br>
+<%= search_field(:user, :name) %>
+<br>
+<%= number_to_currency(34.5) %>
+<br>
+<%= number_to_currency(34.5, :precision => 0, :unit => "kr", :format => "%n %u") %>
+<br>
+<%= number_to_currency(34.5, :precision => 0, :unit => "RD$", :format => "%u %n") %>
+
+<br>
+<%= number_with_precision(34.56789) %>
+<br>
+<%= number_with_precision(34.56789, :precision => 6) %>
+<br>
+<%= number_with_delimiter(3456789) %>
+<br>
+<%= number_with_delimiter(3456789, :delimiter => ' ') %>
+<br>
+<%= number_to_percentage(34.5) %>
+<br>
+<%= number_to_percentage(34.5, :precision =>1, :separator => ',') %>
+<br>
+<%= number_with_precision(34.56789) %>
+<br>
+<%= number_with_precision(34.56789, :precision => 6) %>
+<br>
+<%= number_to_human(123456789) %>
+<br>
+<%= number_to_human(123456789, :precision =>5) %>
+<br>
+<%= number_to_human_size(1234567) %>
+<br>
+<%= number_to_human_size(1234567, :precision =>2) %>
+<br>
+<%= number_to_phone(1234567890) %>
+<br>
+<%= number_to_phone(1234567890,
+	:area_coden=> true,
+	:delimiter => ' ',
+	:country_code => 1,
+	:extension => '321'
+	) %>
+	

@@ -1,0 +1,11 @@
+<h1>Demo#index</h1>
+<p>Hello world !</p>
+
+<!-- Two different ways to call javascripts functions from rails --> 
+<!-- To scape javascript, we use j() -->
+<% name="Sorry !'); alert('I hacked you!" %>
+<%= link_to('Roar', '#', :onclick => "jsRoar('#{j(name)}'); return true;") %>
+
+<% name="JavaScript" %>
+<%= javascript_tag("jsRoar('#{j(name)}');") %>
+
